@@ -24,7 +24,8 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $baseURL = 'http://localhost:8080/';
+    public $baseURL = 'http://localhost:8800/logistic-bn-admin/';
+    // public $baseURL = 'https://bnlogistik.co.id/';
 
     /**
      * --------------------------------------------------------------------------
@@ -56,7 +57,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $uriProtocol = 'REQUEST_URI';
+    public $uriProtocol = 'PATH_INFO';
 
     /**
      * --------------------------------------------------------------------------

@@ -13,7 +13,7 @@ class Home extends BaseController
     function __construct()
     {
         $this->model = model(Contact::class);
-        $this->assets = ['url' => 'assets-client'];
+        $this->assets = ['url' => 'assets_client'];
     }
 
     public function index()
