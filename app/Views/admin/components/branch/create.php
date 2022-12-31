@@ -25,7 +25,7 @@
                         <?= service('validation')->listErrors() ?>
 
                         <!-- Vertical Form -->
-                        <form class="row g-3" method="post" action="<?= $isUpdate ? base_url('admin/branch/update') : base_url('admin/branch/create') ?>">
+                        <form class="row g-3" method="post" action="<?= $isUpdate ? base_url('admin/branch/update') : base_url('admin/branch/create') ?>" enctype="multipart/form-data">
                             <?= csrf_field() ?>
 
                             <input type="hidden" name="id" value="<?= $data['id'] ?>">
@@ -45,6 +45,9 @@
                                 <label for="inputAddress" class="form-label">Location</label>
                                 <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" name="location" value="<?= $data['latitude'] . ',' . $data['longitude'] ?>">
                             </div>
+
+                            <input type="file" class="form-control" name="img" />
+
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                                 <button type="reset" class="btn btn-secondary">Reset</button>

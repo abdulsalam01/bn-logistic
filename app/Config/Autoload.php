@@ -44,6 +44,8 @@ class Autoload extends AutoloadConfig
     public $psr4 = [
         APP_NAMESPACE => APPPATH, // For custom app namespace
         'Config'      => APPPATH . 'Config',
+        'Libraries'   => APPPATH . 'Libraries',
+        'Michalsn\Uuid' => APPPATH . 'ThirdParty/codeigniter4-uuid/src',
     ];
 
     /**
@@ -85,6 +87,7 @@ class Autoload extends AutoloadConfig
      * @var array<int, string>
      */
     public $files = [
-        'app/Helpers/urls_helper.php'
+        'app/Helpers/urls_helper.php',
+        'app/Libraries/firebase.php',
     ];
 }
