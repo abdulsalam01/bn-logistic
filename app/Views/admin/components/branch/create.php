@@ -46,8 +46,6 @@
                                 <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" name="location" value="<?= $data['latitude'] . ',' . $data['longitude'] ?>">
                             </div>
 
-                            <input type="file" class="form-control" name="img" />
-
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                                 <button type="reset" class="btn btn-secondary">Reset</button>
