@@ -19,7 +19,7 @@
             <div class="col-lg-12">
 
                 <div class="my-3">
-                    <a href="<?= base_url('admin/client/create') ?>">
+                    <a href="<?= base_url('admin/slider/create') ?>">
                         <button type="button" class="btn btn-success">Create</button>
                     </a>
                 </div>
@@ -34,8 +34,9 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Icon</th>
+                                    <th scope="col">Media</th>
+                                    <th scope="col">Media Desc</th>
+                                    <th scope="col">Created At</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -43,13 +44,14 @@
                                 <?php foreach ($model['data'] as $key => $value) : ?>
                                     <tr>
                                         <th scope="row"><?= ($key + 1) ?></th>
-                                        <td><?= $value['name'] ?></td>
-                                        <td><img src="<?= $value['icon']?>" alt="<?= $value['icon']?>" class="img-wrapper-size"></td>
+                                        <td><img src="<?= $value['path'] ?>" alt="<?= $value['path'] ?>" class="img-wrapper-size"/></td>
+                                        <td><?= $value['path_description'] ?></td>
+                                        <td><?= $value['created_at'] ?></td>
                                         <td>
-                                            <a href="<?= base_url('admin/client/edit/' . md5($value['id'])) ?>">
+                                            <a href="<?= base_url('admin/slider/edit/' . md5($value['id'])) ?>">
                                                 <button type="button" class="btn btn-primary btn-sm rounded-pill">Edit</button>
                                             </a>
-                                            <form action="<?= base_url('admin/client/delete/' . md5($value['id'])) ?>" method="delete">
+                                            <form action="<?= base_url('admin/slider/delete/' . md5($value['id'])) ?>" method="delete">
                                                 <button type="submit" class="btn btn-danger btn-sm rounded-pill">Delete</button>
                                             </form>
                                         </td>
@@ -70,6 +72,5 @@
     </section>
 
 </main><!-- End #main -->
-
 
 <?= $this->endSection() ?>

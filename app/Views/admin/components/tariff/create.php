@@ -25,18 +25,19 @@
                         <?= service('validation')->listErrors() ?>
 
                         <!-- Vertical Form -->
-                        <form class="row g-3" method="post" action="<?= $isUpdate ? base_url('admin/client/update') : base_url('admin/client/create') ?>" enctype="multipart/form-data">
+                        <form class="row g-3" method="post" action="<?= $isUpdate ? base_url('admin/slider/update') : base_url('admin/slider/create') ?>" enctype="multipart/form-data">
                             <?= csrf_field() ?>
 
                             <input type="hidden" name="id" value="<?= $data['id'] ?>">
                             <div class="col-12">
-                                <label for="inputNanme4" class="form-label">Client Name</label>
-                                <input type="text" class="form-control" id="inputNanme4" name="name" value="<?= $data['name'] ?>">
+                                <label for="inputNanme4" class="form-label">Media</label>
+                                <input type="file" class="form-control" id="inputNanme4" name="path" value="<?= $data['path'] ?>">
                             </div>
                             <div class="col-12">
-                                <label for="inputPassword4" class="form-label">Icon</label>
-                                <input type="file" class="form-control" id="inputPassword4" name="icon" value=<?=$data['icon'] ?>>
+                                <label for="inputPassword4" class="form-label">Description</label>
+                                <input type="text" class="form-control" id="inputPassword4" name="path_desc" value=<?=$data['path_description'] ?>>
                             </div>
+
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                                 <button type="reset" class="btn btn-secondary">Reset</button>

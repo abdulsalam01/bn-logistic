@@ -41,7 +41,7 @@
             );
 
             $_result = $_result->wait();
-            return $_result;
+            return $_result->info();
         }
 
         function uploads($_params = []) {
@@ -86,6 +86,13 @@
             foreach($_params as $param) {
                 array_push($_result, $this->remove($param));
             }
+
+            return $_result;
+        }
+
+        function renew($_params, $_old_params) {
+            $_result = $this->remove($_old_params);
+            $_result = $this->upload($_params);
 
             return $_result;
         }

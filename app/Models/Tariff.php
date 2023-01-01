@@ -14,7 +14,7 @@ class Tariff extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['raw_source', 'packet_type', 'estimation_time', 'weight_range', 'price_range'];
 
     // Dates
     protected $useTimestamps = false;

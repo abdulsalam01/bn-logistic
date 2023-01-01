@@ -45,6 +45,10 @@ class Type extends BaseController
             'name' => 'required|min_length[3]|max_length[255]',
             'description'  => 'required',
         ])) {
+            $object = null;
+            if (!empty($this->request->getFile('icon'))) {                
+            }
+            
             $this->model->save([
                 'name' => $this->request->getPost('name'),
                 'description'  => $this->request->getPost('description'),

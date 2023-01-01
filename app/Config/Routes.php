@@ -89,6 +89,26 @@ $routes->group('admin', static function($routes) {
 
         $routes->post('create', 'Admin\Contact::create');
         $routes->post('update', 'Admin\Contact::update');
+    });
+    // slider
+    $routes->group('slider', static function($routes) {
+        $routes->get('list', 'Admin\Slider::index');
+        $routes->get('create', 'Admin\Slider::store');
+        $routes->get('edit/(:segment)', 'Admin\Slider::edit/$1');
+        $routes->get('delete/(:segment)', 'Admin\Slider::destroy/$1');
+
+        $routes->post('create', 'Admin\Slider::create');
+        $routes->post('update', 'Admin\Slider::update');
+    });
+    // tariff
+    $routes->group('tariff', static function($routes) {
+        $routes->get('list', 'Admin\Tariff::index');
+        $routes->get('create', 'Admin\Tariff::store');
+        $routes->get('edit/(:segment)', 'Admin\Tariff::edit/$1');
+        $routes->get('delete/(:segment)', 'Admin\Tariff::destroy/$1');
+
+        $routes->post('create', 'Admin\Tariff::create');
+        $routes->post('update', 'Admin\Tariff::update');
     });    
 });
 
