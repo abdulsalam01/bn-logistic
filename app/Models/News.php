@@ -14,7 +14,7 @@ class News extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['title', 'description', 'path', 'status', 'type', 'category_id', 'created_by'];
 
     // Dates
     protected $useTimestamps = false;

@@ -109,6 +109,16 @@ $routes->group('admin', static function($routes) {
 
         $routes->post('create', 'Admin\Tariff::create');
         $routes->post('update', 'Admin\Tariff::update');
+    });
+    // news
+    $routes->group('news', static function($routes) {
+        $routes->get('list', 'Admin\News::index');
+        $routes->get('create', 'Admin\News::store');
+        $routes->get('edit/(:segment)', 'Admin\News::edit/$1');
+        $routes->get('delete/(:segment)', 'Admin\News::destroy/$1');
+
+        $routes->post('create', 'Admin\News::create');
+        $routes->post('update', 'Admin\News::update');
     });    
 });
 

@@ -42,10 +42,11 @@ class Tariff extends BaseController
     public function create()
     {
         if ($this->request->getMethod() === 'post' && $this->validate([
-            'name' => 'required|min_length[3]|max_length[255]',
-            'email'  => 'required|valid_email',
-            'subject' => 'required|min_length[4]',
-            'message' => 'required'
+            'raw_source' => 'required|min_length[3]|max_length[255]',
+            'packet_type'  => 'required',
+            'estimation_time' => 'required|valid_date',
+            'weight_range' => 'required',
+            'price_range' => 'required',
         ])) {
             $this->model->save($this->request->getPost());
         }
@@ -68,10 +69,11 @@ class Tariff extends BaseController
     {
         if ($this->request->getMethod() === 'post' && $this->validate([
             'id' => 'required',
-            'name' => 'required|min_length[3]|max_length[255]',
-            'email'  => 'required|valid_email',
-            'subject' => 'required|min_length[4]',
-            'message' => 'required'
+            'raw_source' => 'required|min_length[3]|max_length[255]',
+            'packet_type'  => 'required',
+            'estimation_time' => 'required|valid_date',
+            'weight_range' => 'required',
+            'price_range' => 'required',
         ])) {
             $id = $this->request->getPost('id');
 

@@ -87,16 +87,19 @@ class Client extends BaseController
             $this->model->transStart();
 
             $id = $this->request->getPost('id');
-            $row = $this->model->where('md5(id)', md5($id))->first();
-            $rowJson = $row['icon'];
-            $object = FirebaseWrapper::getInstance()->renew($this->request->getFile('icon'), $rowJson);
+            $var = [
+                'name' => $this->request->getPost('name'),
+            ];
+            if (!in_array($this->request->getFile('icon')->getPath(), [null, ''])) {
+                $row = $this->model->where('md5(id)', md5($id))->first();
+                $rowJson = $row['icon'];
 
+                $object = FirebaseWrapper::getInstance()->renew($this->request->getFile('icon'), $rowJson);
+                $var['icon'] = $object['name'];
+            }
             $this->model
                 ->where('md5(id)', md5($id))
-                ->set([
-                    'name' => $this->request->getPost('name'),
-                    'icon' => $object['name'],
-                ])
+                ->set($var)
                 ->update();
             $this->model->transComplete();
         }

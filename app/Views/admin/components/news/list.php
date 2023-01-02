@@ -19,7 +19,7 @@
             <div class="col-lg-12">
 
                 <div class="my-3">
-                    <a href="<?= base_url('admin/tariff/create') ?>">
+                    <a href="<?= base_url('admin/news/create') ?>">
                         <button type="button" class="btn btn-success">Create</button>
                     </a>
                 </div>
@@ -34,11 +34,13 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Source - Destination</th>
-                                    <th scope="col">Packet Type</th>
-                                    <th scope="col">Estimation Time</th>
-                                    <th scope="col">Weight Range</th>
-                                    <th scope="col">Price Range</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Media</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">Category</th>
+                                    <th scope="col">Created By</th>
                                     <th scope="col">Created At</th>
                                     <th scope="col">Action</th>
                                 </tr>
@@ -47,17 +49,19 @@
                                 <?php foreach ($model['data'] as $key => $value) : ?>
                                     <tr>
                                         <th scope="row"><?= ($key + 1) ?></th>
-                                        <td><?= $value['raw_source'] ?></td>
-                                        <td><?= $value['packet_type'] ?></td>
-                                        <td><?= $value['estimation_time'] ?></td>
-                                        <td><?= $value['weight_range'] ?></td>
-                                        <td><?= $value['price_range'] ?></td>
+                                        <td><?= $value['title'] ?></td>
+                                        <td><?= word_limiter($value['description'], 100) ?></td>
+                                        <td><img src="<?= $value['path'] ?>" alt="<?= $value['path'] ?>" class="img-wrapper-size"/></td>
+                                        <td><?= $value['status'] ? 'Active' : 'Draft' ?></td>
+                                        <td><?= $value['type'] ?></td>
+                                        <td><?= $value['name'] ?></td>
+                                        <td><?= $value['username'] ?></td>
                                         <td><?= $value['created_at'] ?></td>
                                         <td>
-                                            <a href="<?= base_url('admin/tariff/edit/' . md5($value['id'])) ?>">
+                                            <a href="<?= base_url('admin/news/edit/' . md5($value['id'])) ?>">
                                                 <button type="button" class="btn btn-primary btn-sm rounded-pill">Edit</button>
                                             </a>
-                                            <form action="<?= base_url('admin/tariff/delete/' . md5($value['id'])) ?>" method="delete">
+                                            <form action="<?= base_url('admin/news/delete/' . md5($value['id'])) ?>" method="delete">
                                                 <button type="submit" class="btn btn-danger btn-sm rounded-pill">Delete</button>
                                             </form>
                                         </td>

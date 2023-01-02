@@ -3,6 +3,7 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
+use App\Libraries\FirebaseWrapper;
 
 class Type extends BaseController
 {
@@ -27,6 +28,13 @@ class Type extends BaseController
             'data' => $this->model->paginate($this->basePagination),
             'pager' => $this->model->pager,
         ];
+        // remap
+        foreach($this->data['model']['data'] as $k => $elem) {
+            $object = FirebaseWrapper::getInstance()->retrieve($elem['icon']);
+            $object = $object['mediaLink'];
+
+            $this->data['model']['data'][$k]['icon'] = $object;
+        }        
         return view($this->baseView . $this->viewParent . '/list', $this->data);
     }
 
@@ -46,13 +54,16 @@ class Type extends BaseController
             'description'  => 'required',
         ])) {
             $object = null;
-            if (!empty($this->request->getFile('icon'))) {                
-            }
-            
-            $this->model->save([
+            $var = [
                 'name' => $this->request->getPost('name'),
                 'description'  => $this->request->getPost('description'),
-            ]);
+            ];
+            if (!in_array($this->request->getFile('icon')->getPath(), [null, ''])) {
+                $object = FirebaseWrapper::getInstance()->upload($this->request->getFile('icon'));
+                $var['icon'] = $object['name'];
+            }
+
+            $this->model->save($var);
         }
 
         return $this->index();
@@ -76,15 +87,24 @@ class Type extends BaseController
             'name' => 'required|min_length[3]|max_length[255]',
             'description'  => 'required',
         ])) {
-            $id = $this->request->getPost('id');
+            $this->model->transStart();
             
+            $id = $this->request->getPost('id');
+            $var = [
+                'name' => $this->request->getPost('name'),
+                'description'  => $this->request->getPost('description'),
+            ];
+            if (!in_array($this->request->getFile('icon')->getPath(), [null, ''])) {
+                $row = $this->model->where('md5(id)', md5($id))->first();
+
+                $object = FirebaseWrapper::getInstance()->renew($this->request->getFile('icon'), $row['icon']);
+                $var['icon'] = $object['name'];
+            }
             $this->model
                 ->where('md5(id)', md5($id))
-                ->set([
-                    'name' => $this->request->getPost('name'),
-                    'description'  => $this->request->getPost('description'),
-                ])
+                ->set($var)
                 ->update();
+            $this->model->transComplete();
         }
 
         return $this->index();
@@ -92,9 +112,15 @@ class Type extends BaseController
 
     public function destroy($id)
     {
-        $this->model->where('md5(id)', $id);
-        $_result = $this->model->delete();
+        $this->model->transStart();
 
+        $row = $this->model->where('md5(id)', $id)->first();
+        $rowJson = $row['icon'];
+
+        FirebaseWrapper::getInstance()->remove($rowJson);
+        $_result = $this->model->where('md5(id)', $id)->delete();
+
+        $this->model->transComplete();
         return $this->index();
     }
 }

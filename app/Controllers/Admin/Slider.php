@@ -75,22 +75,26 @@ class Slider extends BaseController
     {
         if ($this->request->getMethod() === 'post' && $this->validate([
             'id' => 'required',
-            'path' => 'uploaded[path]|max_size[path,2048]|ext_in[path,png,jpg,gif]',
+            'path' => 'max_size[path,2048]|ext_in[path,png,jpg,gif]',
         ])) {
             $this->model->transStart();
 
             $id = $this->request->getPost('id');
-            $row = $this->model->where('md5(id)', md5($id));
-            $rowJson = json_decode($row->first()['raw']);
-            $object = FirebaseWrapper::getInstance()->renew($this->request->getFile('path'), $rowJson->name);
+            $var = [
+                'path_description'  => $this->request->getPost('path_desc'),
+            ];
+            if (!in_array($this->request->getFile('path')->getPath(), [null, ''])) {
+                $row = $this->model->where('md5(id)', md5($id));
+                $rowJson = json_decode($row->first()['raw']);
+                $object = FirebaseWrapper::getInstance()->renew($this->request->getFile('path'), $rowJson->name);
+
+                $var['path'] = $object['mediaLink'];
+                $var['raw'] = json_encode($object);
+            }
 
             $this->model
                 ->where('md5(id)', md5($id))
-                ->set([
-                    'path' => $object['mediaLink'],
-                    'path_description'  => $this->request->getPost('path_desc'),
-                    'raw'  => json_encode($object),
-                ])
+                ->set($var)
                 ->update();
             $this->model->transComplete();
         }

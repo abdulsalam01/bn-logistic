@@ -31,7 +31,7 @@
                             <input type="hidden" name="id" value="<?= $data['id'] ?>">
                             <div class="col-12">
                                 <label for="inputNanme4" class="form-label">Media</label>
-                                <input type="file" class="form-control" id="inputNanme4" name="path" value="<?= $data['path'] ?>">
+                                <input type="file" class="form-control" id="inputNanme4" name="path">
                             </div>
                             <div class="col-12">
                                 <label for="inputPassword4" class="form-label">Description</label>

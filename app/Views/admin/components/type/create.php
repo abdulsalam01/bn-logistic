@@ -25,7 +25,7 @@
                         <?= service('validation')->listErrors() ?>
 
                         <!-- Vertical Form -->
-                        <form class="row g-3" method="post" action="<?= $isUpdate ? base_url('admin/type/update') : base_url('admin/type/create') ?>">
+                        <form class="row g-3" method="post" action="<?= $isUpdate ? base_url('admin/type/update') : base_url('admin/type/create') ?>" enctype="multipart/form-data">
                             <?= csrf_field() ?>
 
                             <input type="hidden" name="id" value="<?= $data['id'] ?>">
@@ -38,8 +38,8 @@
                                 <textarea class="form-control" id="" cols="30" rows="10" name="description"><?= $data['description'] ?></textarea>
                             </div>
                             <div class="col-12">
-                                <label for="inputNanme4" class="form-label">Icon</label>
-                                <input type="text" class="form-control" id="inputNanme4" name="icon" value="<?= $data['icon'] ?>">
+                                <label for="inputNanme6" class="form-label">Icon</label>
+                                <input type="file" class="form-control" id="inputNanme6" name="icon">
                             </div>                            
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary">Submit</button>

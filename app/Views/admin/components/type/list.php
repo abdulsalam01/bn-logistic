@@ -47,7 +47,7 @@
                                         <th scope="row"><?= ($key + 1) ?></th>
                                         <td><?= $value['name'] ?></td>
                                         <td><?= $value['description'] ?></td>
-                                        <td><?= $value['icon'] ?></td>
+                                        <td><img src="<?= $value['icon'] ?>" alt="<?= $value['icon'] ?>" class="img-wrapper-size"/></td>
                                         <td><?= $value['created_at'] ?></td>
                                         <td>
                                             <a href="<?= base_url('admin/type/edit/' . md5($value['id'])) ?>">
