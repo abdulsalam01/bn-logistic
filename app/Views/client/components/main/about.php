@@ -3,31 +3,29 @@
         <div class="container" data-aos="fade-up">
 
             <div class="section-header">
-                <h2>About Us</h2>
-                <p>Aperiam dolorum et et wuia molestias qui eveniet numquam nihil porro incidunt dolores placeat sunt id nobis omnis tiledo stran delop</p>
+                <h2>Tentang Kami</h2>
+                <p>PT.BENDERA NUSANTARA LOGISTIK adalah perusahaan yang bergerak dalam bidang usaha jasa angkutan barang dengan tujuan seluruh Propinsi dan Kabupaten yang ada di Indonesia, serta melayani pengiriman barang dan dokumen ke luar negeri. Saat ini kami menguasai hampir 100% daerah tujuan pengiriman barang di Indonesia, dari Sabang sampai Merauke.</p>
             </div>
 
             <div class="row gy-4">
                 <div class="col-lg-6">
-                    <h3>Voluptatem dignissimos provident quasi corporis</h3>
+                    <h3>VISI & MISI</h3>
                     <img src="<?= base_url($url . '/img/about.jpg') ?>" class="img-fluid rounded-4 mb-4" alt="">
-                    <p>Ut fugiat ut sunt quia veniam. Voluptate perferendis perspiciatis quod nisi et. Placeat debitis quia recusandae odit et consequatur voluptatem. Dignissimos pariatur consectetur fugiat voluptas ea.</p>
-                    <p>Temporibus nihil enim deserunt sed ea. Provident sit expedita aut cupiditate nihil vitae quo officia vel. Blanditiis eligendi possimus et in cum. Quidem eos ut sint rem veniam qui. Ut ut repellendus nobis tempore doloribus debitis explicabo similique sit. Accusantium sed ut omnis beatae neque deleniti repellendus.</p>
+                    <p>Memajukan dan mengembangkan perusahaan jasa titipan / cargo dengan manajemen resiko yang handal, terkemuka dan dipercaya oleh masyarakat di seluruh Indonesia, serta mensejahterakan masyarakat kurang mampu dan akan membangun sarana penunjang cargo yang dapat terintegrasi dengan aplikasi, untuk memudahkan pelanggan dalam menctracking barang yang dititipkan kepada kami sehingga meningkatkan kepercayaan masyarakat kepada kami..</p>
+                    <p>Anda Bisa mempercayakan bersama kami keamanan dan ketepatan waktu pengiriman</p>
                 </div>
                 <div class="col-lg-6">
                     <div class="content ps-0 ps-lg-5">
                         <p class="fst-italic">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                            magna aliqua.
+                            Berikut beberapa misi kami :
                         </p>
                         <ul>
-                            <li><i class="bi bi-check-circle-fill"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Menyediakan produk jasa angkutan/titipan ke seluruh pelosok tanah air dengan mengutamakan kepuasan pelanggan.</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Menyelenggarakan kegiatan usaha yang menciptakan iklim kerja yang kondusif bagi komunitas perusahaan untuk berkonstribusi secara maksimal demi pertumbuhan dan kelangsungan hidup perusahaan.</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Berperan serta dalam usaha pengembangan ekonomi nasional.</li>
                         </ul>
                         <p>
-                            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
+                            dan tentunya membuka lapangan kerja bagi masyarakat luas, terutama masyarakat menengah kebawah dengan penghasilan minimal sesuai ketentuan Pemerintah.
                         </p>
 
                         <div class="position-relative mt-4">

@@ -5,12 +5,12 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Impact Bootstrap Template - Index</title>
+  <title><?= $base_title ?></title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="<?= base_url($url . '/img/favicon.png') ?>" rel="icon">
+  <link href="<?= base_url($url . '/img/favicon.jpeg') ?>" rel="icon">
   <link href="<?= base_url($url . '/img/apple-touch-icon.png') ?>" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
