@@ -127,3 +127,6 @@ nb-configuration.xml
 
 # credentials
 /public/credentials.json
+
+# files
+/app/Config/App.php

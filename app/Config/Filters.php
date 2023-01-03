@@ -47,7 +47,7 @@ class Filters extends BaseConfig
             'session' => ['except' => 
                 [
                     'login*', 'register', 'auth/a/*', // admin page
-                    '/', '/news', '/contact', // client page
+                    '/', '/news/*', '/contact', // client page
                 ]
             ],
         ],
