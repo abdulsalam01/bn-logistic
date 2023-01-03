@@ -46,6 +46,7 @@ class Menu extends Model
             ['name' => 'News Category', 'link' => base_url('admin/category/list'), 'group' => 'category'],
             ['name' => 'Slider', 'link' => base_url('admin/slider/list'), 'group' => 'slider'],
             ['name' => 'Type', 'link' => base_url('admin/type/list'), 'group' => 'type'],
+            ['name' => 'Team', 'link' => base_url('admin/team/list'), 'group' => 'team'],
         ];
 
         return $_master;

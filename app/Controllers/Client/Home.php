@@ -2,6 +2,7 @@
 
 namespace App\Controllers\Client;
 
+use App\Controllers\Admin\Team;
 use App\Controllers\BaseController;
 use App\Models\Branch;
 use App\Models\Category;
@@ -29,6 +30,7 @@ class Home extends BaseController
             model(Tariff::class), // tariff 5
             model(Contact::class), // contact 6
             model(Category::class), // category 7
+            model(Team::class), // team 8
         ];
         $this->assets = ['url' => 'assets_client', 'base_title' => 'BN Logistic'];
     }
@@ -39,16 +41,19 @@ class Home extends BaseController
         foreach($this->other as $elem) {
             array_push($_data, $elem->paginate($this->basePagination));
         }
-
+        $this->assets['data'] = $_data;
+        
         return view('client/index', $this->assets);
     }
 
-    public function news() {
+    public function news($id) {
         $_data = [];
         foreach($this->other as $elem) {
             array_push($_data, $elem->paginate($this->basePagination));
         }
-                
+        $this->assets['data'] = $_data;
+        $this->assets['news'] = $this->other[1]->where('md5(id)', $id)->first();
+
         return view('client/blog', $this->assets);
     }
 

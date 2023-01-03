@@ -29,21 +29,13 @@
                     <li><a href="#services">Layanan</a></li>
                     <li><a href="#portfolio">Portofolio</a></li>
                     <li><a href="#team">Team</a></li>
-                    <li class="dropdown"><a href="#"><span>Tujuan</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                    <li class="dropdown"><a href="#"><span>Cabang</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                         <ul>
-                            <li><a href="#">Pulau Jawa</a></li>
-                            <li class="dropdown"><a href="#"><span>Rute Utama</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                                <ul>
-                                    <li><a href="#">Pamekasan</a></li>
-                                    <li><a href="#">Semarang</a></li>
-                                    <li><a href="#">Solo/Yogya</a></li>
-                                    <li><a href="#">Bandung</a></li>
-                                    <li><a href="#">Jakarta</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Bandung - Jakarta</a></li>
-                            <li><a href="#">Pamekasan - Solo/Yogya - Semarang</a></li>
-                            <li><a href="#">Lainya</a></li>
+                            <?php foreach($data[3] as $branch): ?>
+                                <li>
+                                    <a href="#"><?=$branch['name']?></a>
+                                </li>
+                            <?php endforeach ?>
                         </ul>
                     </li>
                     <li><a href="#contact">Hubungi Kami</a></li>

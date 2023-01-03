@@ -9,83 +9,33 @@
 
             <div class="row gy-4">
 
-                <div class="col-xl-4 col-md-6">
-                    <article>
+                <?php foreach($data[1] as $news) : ?>
+                    <div class="col-xl-4 col-md-6">
+                        <article>
 
-                        <div class="post-img">
-                            <img src="<?= base_url($url . '/img/blog/blog-1.jpg') ?>" alt="" class="img-fluid">
-                        </div>
-
-                        <p class="post-category">Politics</p>
-
-                        <h2 class="title">
-                            <a href="<?= base_url('news') ?>">Dolorum optio tempore voluptas dignissimos</a>
-                        </h2>
-
-                        <div class="d-flex align-items-center">
-                            <img src="<?= base_url($url . '/img/blog/blog-author.jpg') ?>" alt="" class="img-fluid post-author-img flex-shrink-0">
-                            <div class="post-meta">
-                                <p class="post-author">Maria Doe</p>
-                                <p class="post-date">
-                                    <time datetime="2022-01-01">Jan 1, 2022</time>
-                                </p>
+                            <div class="post-img">
+                                <img src="<?= base_url($url . '/img/blog/blog-1.jpg') ?>" alt="" class="img-fluid">
                             </div>
-                        </div>
 
-                    </article>
-                </div><!-- End post list item -->
+                            <p class="post-category">Politics</p>
 
-                <div class="col-xl-4 col-md-6">
-                    <article>
+                            <h2 class="title">
+                                <a href="<?= base_url('news/' . md5($news['id'])) ?>">Dolorum optio tempore voluptas dignissimos</a>
+                            </h2>
 
-                        <div class="post-img">
-                            <img src="<?= base_url($url . '/img/blog/blog-2.jpg') ?>" alt="" class="img-fluid">
-                        </div>
-
-                        <p class="post-category">Sports</p>
-
-                        <h2 class="title">
-                            <a href="<?= base_url('news') ?>">Nisi magni odit consequatur autem nulla dolorem</a>
-                        </h2>
-
-                        <div class="d-flex align-items-center">
-                            <img src="<?= base_url($url . '/img/blog/blog-author-2.jpg') ?>" alt="" class="img-fluid post-author-img flex-shrink-0">
-                            <div class="post-meta">
-                                <p class="post-author">Allisa Mayer</p>
-                                <p class="post-date">
-                                    <time datetime="2022-01-01">Jun 5, 2022</time>
-                                </p>
+                            <div class="d-flex align-items-center">
+                                <img src="<?= base_url($url . '/img/blog/blog-author.jpg') ?>" alt="" class="img-fluid post-author-img flex-shrink-0">
+                                <div class="post-meta">
+                                    <p class="post-author">Maria Doe</p>
+                                    <p class="post-date">
+                                        <time datetime="2022-01-01">Jan 1, 2022</time>
+                                    </p>
+                                </div>
                             </div>
-                        </div>
 
-                    </article>
-                </div><!-- End post list item -->
-
-                <div class="col-xl-4 col-md-6">
-                    <article>
-
-                        <div class="post-img">
-                            <img src="<?= base_url($url . '/img/blog/blog-3.jpg') ?>" alt="" class="img-fluid">
-                        </div>
-
-                        <p class="post-category">Entertainment</p>
-
-                        <h2 class="title">
-                            <a href="<?= base_url('news') ?>">Possimus soluta ut id suscipit ea ut in quo quia et soluta</a>
-                        </h2>
-
-                        <div class="d-flex align-items-center">
-                            <img src="<?= base_url($url . '/img/blog/blog-author-3.jpg') ?>" alt="" class="img-fluid post-author-img flex-shrink-0">
-                            <div class="post-meta">
-                                <p class="post-author">Mark Dower</p>
-                                <p class="post-date">
-                                    <time datetime="2022-01-01">Jun 22, 2022</time>
-                                </p>
-                            </div>
-                        </div>
-
-                    </article>
-                </div><!-- End post list item -->
+                        </article>
+                    </div><!-- End post list item -->
+                <?php endforeach ?>
 
             </div><!-- End recent posts list -->
 

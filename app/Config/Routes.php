@@ -37,9 +37,8 @@ $routes->setAutoRoute(false);
 // route since we don't have to scan directories.
 $routes->group('admin', static function($routes) {
     $routes->get('/', 'Home::index');
+    $routes->get('user', 'Home::profile');
 
-    // custom guard
-    
     // branch
     $routes->group('branch', static function ($routes) {
         $routes->get('list', 'Admin\Branch::index');
@@ -119,6 +118,16 @@ $routes->group('admin', static function($routes) {
 
         $routes->post('create', 'Admin\News::create');
         $routes->post('update', 'Admin\News::update');
+    });
+    // team
+    $routes->group('team', static function($routes) {
+        $routes->get('list', 'Admin\Team::index');
+        $routes->get('create', 'Admin\Team::store');
+        $routes->get('edit/(:segment)', 'Admin\Team::edit/$1');
+        $routes->get('delete/(:segment)', 'Admin\Team::destroy/$1');
+
+        $routes->post('create', 'Admin\Team::create');
+        $routes->post('update', 'Admin\Team::update');
     });    
 });
 
@@ -126,7 +135,7 @@ $routes->group('admin', static function($routes) {
  * Front-client side
  */
 $routes->get('/', 'Client\Home::index');
-$routes->get('/news', 'Client\Home::news');
+$routes->get('/news/(:segment)', 'Client\Home::news/$1');
 $routes->post('/contact', 'Client\Home::contact');
 
 /**

@@ -10,7 +10,36 @@
             <div class="row gy-4">
                 <div class="col-lg-6">
                     <h3>VISI & MISI</h3>
-                    <img src="<?= base_url($url . '/img/about.jpg') ?>" class="img-fluid rounded-4 mb-4" alt="">
+                    <div class="slides-3 swiper rounded-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="swiper-wrapper">
+                            <?php foreach ($data[4] as $slider) : ?>
+                                <div class="swiper-slide">
+                                    <div class="testimonial-wrap">
+                                        <div class="testimonial-item">
+                                            <div class="d-flex align-items-center">
+                                                <img src="<?= base_url($url . '/img/testimonials/testimonials-1.jpg') ?>" class="testimonial-img flex-shrink-0 img-fluid" alt="">
+                                                <div>
+                                                    <h3>Saul Goodman</h3>
+                                                    <h4>Ceo &amp; Founder</h4>
+                                                    <div class="stars">
+                                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p>
+                                                <i class="bi bi-quote quote-icon-left"></i>
+                                                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                                                <i class="bi bi-quote quote-icon-right"></i>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div><!-- End testimonial item -->
+                            <?php endforeach ?>
+
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+
                     <p>Memajukan dan mengembangkan perusahaan jasa titipan / cargo dengan manajemen resiko yang handal, terkemuka dan dipercaya oleh masyarakat di seluruh Indonesia, serta mensejahterakan masyarakat kurang mampu dan akan membangun sarana penunjang cargo yang dapat terintegrasi dengan aplikasi, untuk memudahkan pelanggan dalam menctracking barang yang dititipkan kepada kami sehingga meningkatkan kepercayaan masyarakat kepada kami..</p>
                     <p>Anda Bisa mempercayakan bersama kami keamanan dan ketepatan waktu pengiriman</p>
                 </div>
