@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 03, 2023 at 03:14 PM
+-- Generation Time: Jan 04, 2023 at 06:30 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -67,7 +67,7 @@ CREATE TABLE `auth_identities` (
 --
 
 INSERT INTO `auth_identities` (`id`, `user_id`, `type`, `name`, `secret`, `secret2`, `expires`, `extra`, `force_reset`, `last_used_at`, `created_at`, `updated_at`) VALUES
-(6, 2, 'email_password', NULL, 'admin@gmail.com', '$2y$10$3K/uaGMqQDSWdddc//X7QO49Rjh0PyWz0bUk0luxYA8jd847BJhJy', NULL, NULL, 0, '2023-01-03 21:07:22', '2022-12-29 14:09:53', '2023-01-03 21:07:22');
+(6, 2, 'email_password', NULL, 'admin@gmail.com', '$2y$10$3K/uaGMqQDSWdddc//X7QO49Rjh0PyWz0bUk0luxYA8jd847BJhJy', NULL, NULL, 0, '2023-01-05 00:22:56', '2022-12-29 14:09:53', '2023-01-05 00:22:56');
 
 -- --------------------------------------------------------
 
@@ -96,7 +96,10 @@ INSERT INTO `auth_logins` (`id`, `ip_address`, `user_agent`, `id_type`, `identif
 (4, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36', 'email_password', 'admin@gmail.com', 2, '2023-01-01 18:54:25', 1),
 (5, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36', 'email_password', 'admin@gmail.com', 2, '2023-01-02 18:44:00', 1),
 (6, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36', 'email_password', 'admin@gmail.com', 2, '2023-01-03 20:01:33', 1),
-(7, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36', 'email_password', 'admin@gmail.com', 2, '2023-01-03 21:07:22', 1);
+(7, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36', 'email_password', 'admin@gmail.com', 2, '2023-01-03 21:07:22', 1),
+(8, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36', 'email_password', 'admin@gmail.com', 2, '2023-01-03 21:40:29', 1),
+(9, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36', 'email_password', 'admin@gmail.com', 2, '2023-01-04 21:22:55', 1),
+(10, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36', 'email_password', 'admin@gmail.com', 2, '2023-01-05 00:22:56', 1);
 
 -- --------------------------------------------------------
 
@@ -253,7 +256,8 @@ INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`
 (9, '2022-12-25-125130', 'App\\Database\\Migrations\\Category', 'default', 'App', 1672295316, 1),
 (10, '2022-12-25-126550', 'App\\Database\\Migrations\\News', 'default', 'App', 1672295316, 1),
 (11, '2022-12-29-060655', 'App\\Database\\Migrations\\Contact', 'default', 'App', 1672295316, 1),
-(12, '2023-01-03-124742', 'App\\Database\\Migrations\\Team', 'default', 'App', 1672750205, 2);
+(12, '2023-01-03-124742', 'App\\Database\\Migrations\\Team', 'default', 'App', 1672750205, 2),
+(13, '2023-01-04-141202', 'App\\Database\\Migrations\\Portfolio', 'default', 'App', 1672841761, 3);
 
 -- --------------------------------------------------------
 
@@ -279,7 +283,31 @@ CREATE TABLE `news` (
 --
 
 INSERT INTO `news` (`id`, `title`, `description`, `path`, `status`, `type`, `category_id`, `created_by`, `created_at`, `updated_at`) VALUES
-(3, 'News In 2023', 'News in 2023 from the description field', 'files/1672755040_campuss.png', 0, 'hot', 1, 2, '2023-01-03 14:10:42', '2023-01-03 14:10:42');
+(5, 'Generating Query Results', 'This method returns the query result as an array of objects, or an empty array on failure. Typically you’ll use this in a foreach loop, like this:', 'files/1672852789_golang-life-moto.png', 1, 'hot', 1, 2, '2023-01-04 17:19:50', '2023-01-04 17:19:50');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `portfolio`
+--
+
+CREATE TABLE `portfolio` (
+  `id` int(6) UNSIGNED NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `description` text NOT NULL,
+  `path` varchar(255) NOT NULL,
+  `status` smallint(1) UNSIGNED NOT NULL DEFAULT 0,
+  `type` enum('default','product','app','branding','other') NOT NULL DEFAULT 'default',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `portfolio`
+--
+
+INSERT INTO `portfolio` (`id`, `title`, `description`, `path`, `status`, `type`, `created_at`, `updated_at`) VALUES
+(2, 'New Title Here', 'New Title Here with description', 'files/1672852296_JustGo.png', 1, 'product', '2023-01-04 17:11:37', '2023-01-04 17:11:37');
 
 -- --------------------------------------------------------
 
@@ -312,6 +340,13 @@ CREATE TABLE `slider` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `slider`
+--
+
+INSERT INTO `slider` (`id`, `path`, `path_description`, `raw`, `created_at`, `updated_at`) VALUES
+(7, 'https://storage.googleapis.com/download/storage/v1/b/logistic-admin-e9027.appspot.com/o/files%2F1672843128_a2.jpg?generation=1672843130518071&alt=media', 'Logistic BN', '{\"kind\":\"storage#object\",\"id\":\"logistic-admin-e9027.appspot.com\\/files\\/1672843128_a2.jpg\\/1672843130518071\",\"selfLink\":\"https:\\/\\/www.googleapis.com\\/storage\\/v1\\/b\\/logistic-admin-e9027.appspot.com\\/o\\/files%2F1672843128_a2.jpg\",\"mediaLink\":\"https:\\/\\/storage.googleapis.com\\/download\\/storage\\/v1\\/b\\/logistic-admin-e9027.appspot.com\\/o\\/files%2F1672843128_a2.jpg?generation=1672843130518071&alt=media\",\"name\":\"files\\/1672843128_a2.jpg\",\"bucket\":\"logistic-admin-e9027.appspot.com\",\"generation\":\"1672843130518071\",\"metageneration\":\"1\",\"contentType\":\"image\\/jpeg\",\"storageClass\":\"STANDARD\",\"size\":\"388230\",\"md5Hash\":\"qdYWFi4tBGVXCYFpjut6BQ==\",\"crc32c\":\"F3RfOg==\",\"etag\":\"CLf0vKSSrvwCEAE=\",\"timeCreated\":\"2023-01-04T14:38:50.520Z\",\"updated\":\"2023-01-04T14:38:50.520Z\",\"timeStorageClassUpdated\":\"2023-01-04T14:38:50.520Z\",\"metadata\":{\"firebaseStorageDownloadTokens\":\"4f32a1c6-0d50-4ed3-b551-7a1240364f94\"},\"acl\":[{\"kind\":\"storage#objectAccessControl\",\"object\":\"files\\/1672843128_a2.jpg\",\"generation\":\"1672843130518071\",\"id\":\"logistic-admin-e9027.appspot.com\\/files\\/1672843128_a2.jpg\\/1672843130518071\\/user-logistic-admin-e9027@appspot.gserviceaccount.com\",\"selfLink\":\"https:\\/\\/www.googleapis.com\\/storage\\/v1\\/b\\/logistic-admin-e9027.appspot.com\\/o\\/files%2F1672843128_a2.jpg\\/acl\\/user-logistic-admin-e9027@appspot.gserviceaccount.com\",\"bucket\":\"logistic-admin-e9027.appspot.com\",\"entity\":\"user-logistic-admin-e9027@appspot.gserviceaccount.com\",\"role\":\"OWNER\",\"email\":\"logistic-admin-e9027@appspot.gserviceaccount.com\",\"etag\":\"CLf0vKSSrvwCEAE=\"},{\"kind\":\"storage#objectAccessControl\",\"object\":\"files\\/1672843128_a2.jpg\",\"generation\":\"1672843130518071\",\"id\":\"logistic-admin-e9027.appspot.com\\/files\\/1672843128_a2.jpg\\/1672843130518071\\/allUsers\",\"selfLink\":\"https:\\/\\/www.googleapis.com\\/storage\\/v1\\/b\\/logistic-admin-e9027.appspot.com\\/o\\/files%2F1672843128_a2.jpg\\/acl\\/allUsers\",\"bucket\":\"logistic-admin-e9027.appspot.com\",\"entity\":\"allUsers\",\"role\":\"READER\",\"etag\":\"CLf0vKSSrvwCEAE=\"}],\"owner\":{\"entity\":\"user-logistic-admin-e9027@appspot.gserviceaccount.com\"}}', '2023-01-04 14:38:49', '2023-01-04 14:38:49');
 
 -- --------------------------------------------------------
 
@@ -354,6 +389,13 @@ CREATE TABLE `team` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `team`
+--
+
+INSERT INTO `team` (`id`, `name`, `role`, `path`, `media`, `is_active`, `created_at`, `updated_at`) VALUES
+(3, 'Thinkwell Projection', 'Dada', 'files/1672849421_Coder.jpg', '', 1, '2023-01-04 16:23:44', '2023-01-04 16:23:44');
+
 -- --------------------------------------------------------
 
 --
@@ -392,7 +434,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `status`, `status_message`, `active`, `last_active`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(2, 'Administrator', NULL, NULL, 1, '2023-01-03 21:13:03', '2022-12-29 14:09:53', '2022-12-29 14:09:53', NULL);
+(2, 'Administrator', NULL, NULL, 1, '2023-01-05 00:30:13', '2022-12-29 14:09:53', '2022-12-29 14:09:53', NULL);
 
 --
 -- Indexes for dumped tables
@@ -489,6 +531,14 @@ ALTER TABLE `news`
   ADD KEY `created_at` (`created_at`);
 
 --
+-- Indexes for table `portfolio`
+--
+ALTER TABLE `portfolio`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `created_at` (`created_at`),
+  ADD KEY `type` (`type`);
+
+--
 -- Indexes for table `settings`
 --
 ALTER TABLE `settings`
@@ -550,7 +600,7 @@ ALTER TABLE `auth_identities`
 -- AUTO_INCREMENT for table `auth_logins`
 --
 ALTER TABLE `auth_logins`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `auth_permissions_users`
@@ -598,13 +648,19 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `portfolio`
+--
+ALTER TABLE `portfolio`
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `settings`
@@ -616,7 +672,7 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `slider`
 --
 ALTER TABLE `slider`
-  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tariff`
@@ -628,7 +684,7 @@ ALTER TABLE `tariff`
 -- AUTO_INCREMENT for table `team`
 --
 ALTER TABLE `team`
-  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `type`
