@@ -19,7 +19,7 @@
 /* Colors */
 :root {
   --color-default: #222222;
-  --color-primary: #097f9c;
+  --color-primary: #2887bf;
   --color-secondary: #f85a40;
   --color-component: #042637ec;
 }
@@ -249,7 +249,7 @@ section {
 # Header
 --------------------------------------------------------------*/
 .topbar {
-  background: #02749a;
+  background: #27689e;
   height: 40px;
   font-size: 14px;
   transition: all 0.5s;
@@ -315,7 +315,7 @@ section {
 }
 
 .header .logo img {
-  max-height: 40px;
+  max-height: 80px;
   margin-right: 6px;
 }
 
@@ -2712,4 +2712,10 @@ section {
 
 .footer .credits a {
   color: #fff;
+}
+
+/* img */
+.img-fluid-extends {
+  max-width: 75%;
+  height: auto;
 }

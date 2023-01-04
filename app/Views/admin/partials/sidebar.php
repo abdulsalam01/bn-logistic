@@ -1,6 +1,8 @@
 <?php
     $urls = current_url(true)->getSegments();
-    $url = $urls[count($urls) - 2];
+    $index = count($urls) - 2;
+    $url = $urls[$index < 0 ? 0 : $index];
+
     $isMasterActive = in_array($url, array_column($master_menu, 'group'));
     $isTransactionActive = in_array($url, array_column($transact_menu, 'group'));
 ?>

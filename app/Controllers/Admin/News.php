@@ -28,6 +28,7 @@ class News extends BaseController
     public function index()
     {
         $query = $this->model
+            ->select('news.*, category.name, users.username')
             ->join('category', 'category.id = news.category_id')
             ->join('users', 'users.id = news.created_by');
         $this->data['title'] = $this->baseTitle . 'News';

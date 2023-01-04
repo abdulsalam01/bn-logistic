@@ -58,6 +58,7 @@ class Menu extends Model
             ['name' => 'Contact', 'link' => base_url('admin/contact/list'), 'group' => 'contact'],
             ['name' => 'News', 'link' => base_url('admin/news/list'), 'group' => 'news'],
             ['name' => 'Tariff', 'link' => base_url('admin/tariff/list'), 'group' => 'tariff'],
+            ['name' => 'Portfolio', 'link' => base_url('admin/portfolio/list'), 'group' => 'portfolio'],
         ];
 
         return $_transact;

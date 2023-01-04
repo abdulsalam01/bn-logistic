@@ -9,12 +9,12 @@
 
             <div class="row gy-4">
 
-                <?php foreach($data[8] as $team): ?>
+                <?php foreach($clients['team'] as $team): ?>
                     <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
                         <div class="member">
-                            <img src="<?= base_url($url . '/img/team/team-1.jpg') ?>" class="img-fluid" alt="">
-                            <h4>Walter White</h4>
-                            <span>Web Development</span>
+                            <img src="<?= $team['path'] ?>" class="img-fluid" alt="">
+                            <h4><?= $team['name'] ?></h4>
+                            <span><?= $team['role'] ?></span>
                             <div class="social">
                                 <a href=""><i class="bi bi-twitter"></i></a>
                                 <a href=""><i class="bi bi-facebook"></i></a>

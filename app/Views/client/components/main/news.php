@@ -9,26 +9,26 @@
 
             <div class="row gy-4">
 
-                <?php foreach($data[1] as $news) : ?>
+                <?php foreach($clients['news'] as $news) : ?>
                     <div class="col-xl-4 col-md-6">
                         <article>
 
                             <div class="post-img">
-                                <img src="<?= base_url($url . '/img/blog/blog-1.jpg') ?>" alt="" class="img-fluid">
+                                <img src="<?= $news['path'] ?>" alt="" class="img-fluid">
                             </div>
 
-                            <p class="post-category">Politics</p>
+                            <p class="post-category"><?= $news['name'] ?></p>
 
                             <h2 class="title">
-                                <a href="<?= base_url('news/' . md5($news['id'])) ?>">Dolorum optio tempore voluptas dignissimos</a>
+                                <a href="<?= base_url('news/' . md5($news['id'])) ?>"><?= $news['description'] ?></a>
                             </h2>
 
                             <div class="d-flex align-items-center">
                                 <img src="<?= base_url($url . '/img/blog/blog-author.jpg') ?>" alt="" class="img-fluid post-author-img flex-shrink-0">
                                 <div class="post-meta">
-                                    <p class="post-author">Maria Doe</p>
+                                    <p class="post-author"><?= $news['username'] ?></p>
                                     <p class="post-date">
-                                        <time datetime="2022-01-01">Jan 1, 2022</time>
+                                        <time datetime="2022-01-01"><?= $news['created_at'] ?></time>
                                     </p>
                                 </div>
                             </div>

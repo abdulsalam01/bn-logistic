@@ -11,7 +11,7 @@
                   </div>
               </div>
               <div class="col-lg-6 order-1 order-lg-2">
-                  <img src="<?= base_url($url . '/img/hero-img.svg') ?>" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="100">
+                  <img src="<?= base_url($url . '/img_own/a2.jpg') ?>" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="100">
               </div>
           </div>
       </div>

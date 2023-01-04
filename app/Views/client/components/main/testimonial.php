@@ -10,7 +10,7 @@
             <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
                 <div class="swiper-wrapper">
 
-                    <?php foreach($data[6] as $contact): ?>
+                    <?php foreach($data[5] as $contact): ?>
                         <div class="swiper-slide">
                             <div class="testimonial-wrap">
                                 <div class="testimonial-item">

@@ -19,8 +19,8 @@
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
             <a href="<?= base_url('/') ?>" class="logo d-flex align-items-center">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
-                <!-- <img src="assets/img/logo.png" alt=""> -->
-                <h1>PT. BNL<span>.</span></h1>
+                <img src="<?= base_url($url . '/img_own/a1.png') ?>" alt="">
+                <!-- <h1>PT. BNL<span>.</span></h1> -->
             </a>
             <nav id="navbar" class="navbar">
                 <ul>
@@ -31,7 +31,7 @@
                     <li><a href="#team">Team</a></li>
                     <li class="dropdown"><a href="#"><span>Cabang</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                         <ul>
-                            <?php foreach($data[3] as $branch): ?>
+                            <?php foreach($data[2] as $branch): ?>
                                 <li>
                                     <a href="#"><?=$branch['name']?></a>
                                 </li>

@@ -128,6 +128,16 @@ $routes->group('admin', static function($routes) {
 
         $routes->post('create', 'Admin\Team::create');
         $routes->post('update', 'Admin\Team::update');
+    });
+    // portfolio
+    $routes->group('portfolio', static function($routes) {
+        $routes->get('list', 'Admin\Portfolio::index');
+        $routes->get('create', 'Admin\Portfolio::store');
+        $routes->get('edit/(:segment)', 'Admin\Portfolio::edit/$1');
+        $routes->get('delete/(:segment)', 'Admin\Portfolio::destroy/$1');
+
+        $routes->post('create', 'Admin\Portfolio::create');
+        $routes->post('update', 'Admin\Portfolio::update');
     });    
 });
 
