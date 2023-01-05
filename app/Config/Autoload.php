@@ -89,6 +89,7 @@ class Autoload extends AutoloadConfig
     public $files = [
         'app/Helpers/urls_helper.php',
         'app/Helpers/db_helper.php',
+        'app/Helpers/component_helper.php',
         'app/Libraries/firebase.php',
     ];
 }

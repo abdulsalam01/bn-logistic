@@ -47,7 +47,10 @@ class Contact extends BaseController
             'subject' => 'required|min_length[4]',
             'message' => 'required'
         ])) {
-            $this->model->save($this->request->getPost());
+            $var = array_merge($this->request->getPost(), [
+                'is_active' => convertBooleanToInteger($this->request->getPost('is_active'))
+            ]);
+            $this->model->save($var);
         }
         
         return $this->index();
@@ -74,10 +77,12 @@ class Contact extends BaseController
             'message' => 'required'
         ])) {
             $id = $this->request->getPost('id');
-
+            $var = array_merge($this->request->getPost(), [
+                'is_active' => convertBooleanToInteger($this->request->getPost('is_active'))
+            ]);
             $this->model
                 ->where('md5(id)', md5($id))
-                ->set($this->request->getPost())
+                ->set($var)
                 ->update();
         }
 

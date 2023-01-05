@@ -46,7 +46,7 @@
                                 <textarea class="form-control" id="inputEmail5" cols="30" rows="10" name="message"><?= $data['message'] ?></textarea>
                             </div>
                             <div class="col-12">
-                                <input type="checkbox" class="form-check-input" id="flexCheckDefault" name="is_active" value=<?=$data['is_active'] ?>>
+                                <input type="checkbox" class="form-check-input" id="flexCheckDefault" name="is_active">
                                 <label class="form-check-label" for="flexCheckDefault">Active</label>
                             </div>
                             <div class="text-center">

@@ -42,7 +42,7 @@
                                 <input type="file" class="form-control" id="inputNanme4" name="path">
                             </div>
                             <div class="col-12">
-                                <input type="checkbox" class="form-check-input" id="flexCheckDefault" name="is_active" value=<?=$data['is_active'] ?>>
+                                <input type="checkbox" class="form-check-input" id="flexCheckDefault" name="is_active">
                                 <label class="form-check-label" for="flexCheckDefault">Active</label>
                             </div>
 

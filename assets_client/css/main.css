@@ -2719,3 +2719,8 @@ section {
   max-width: 75%;
   height: auto;
 }
+/* tags in news detail */
+.tags-extends {
+  display: block;
+  margin-top: 6rem!important;
+}

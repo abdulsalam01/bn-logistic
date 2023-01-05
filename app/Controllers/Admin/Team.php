@@ -59,7 +59,7 @@ class Team extends BaseController
                 'name' => $this->request->getPost('name'),
                 'role' => $this->request->getPost('role'),
                 'path' => $object['name'],
-                'is_active' => $this->request->getPost('is_active') ?? 0,
+                'is_active' => convertBooleanToInteger($this->request->getPost('is_active')),
                 'media' => $this->request->getPost('media') ?? '',
             ];
 
@@ -94,7 +94,7 @@ class Team extends BaseController
             $var = [
                 'name' => $this->request->getPost('name'),
                 'role' => $this->request->getPost('role'),
-                'is_active' => $this->request->getPost('is_active') ?? 0,
+                'is_active' => convertBooleanToInteger($this->request->getPost('is_active')),
                 'media' => $this->request->getPost('media') ?? '',
             ];
             if (!in_array($this->request->getFile('path')->getPath(), [null, ''])) {

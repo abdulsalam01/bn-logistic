@@ -20,7 +20,7 @@
                             <p class="post-category"><?= $news['name'] ?></p>
 
                             <h2 class="title">
-                                <a href="<?= base_url('news/' . md5($news['id'])) ?>"><?= $news['description'] ?></a>
+                                <a href="<?= base_url('news/' . md5($news['id'])) ?>"><?= word_limiter($news['title'], 30, '...') ?></a>
                             </h2>
 
                             <div class="d-flex align-items-center">

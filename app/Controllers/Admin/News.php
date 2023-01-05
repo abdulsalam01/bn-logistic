@@ -73,9 +73,10 @@ class News extends BaseController
             $this->model->transStart();
 
             $object = FirebaseWrapper::getInstance()->upload($this->request->getFile('path'));
-            $created_by = ['created_by' => auth()->id()];
+            $createdBy = ['created_by' => auth()->id()];
             $path = ['path' => $object['name']];
-            $var = array_merge($this->request->getPost(), $created_by, $path);
+            $isActive = ['is_active' => convertBooleanToInteger($this->request->getPost('is_active'))];
+            $var = array_merge($this->request->getPost(), $createdBy, $path, $isActive);
 
             $this->model->save($var);
             $this->model->transComplete();
@@ -111,7 +112,8 @@ class News extends BaseController
 
             $id = $this->request->getPost('id');
             $var = $this->request->getPost();
-            $created_by = ['created_by' => auth()->id()];
+            $createdBy = ['created_by' => auth()->id()];
+            $isActive = ['is_active' => convertBooleanToInteger($this->request->getPost('is_active'))];
             if (!in_array($this->request->getFile('path')->getPath(), [null, ''])) {
                 $row = $this->model->where('md5(id)', md5($id))->first();
                 $rowJson = $row['path'];
@@ -119,7 +121,7 @@ class News extends BaseController
                 $object = FirebaseWrapper::getInstance()->renew($this->request->getFile('path'), $rowJson);
                 $var = array_merge($var, ['path' => $object['name']]);
             }
-            $var = array_merge($var, $created_by);
+            $var = array_merge($var, $createdBy, $isActive);
             $this->model
                 ->where('md5(id)', md5($id))
                 ->set($var)

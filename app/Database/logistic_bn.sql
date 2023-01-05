@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2023 at 06:30 PM
+-- Generation Time: Jan 05, 2023 at 08:23 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -67,7 +67,7 @@ CREATE TABLE `auth_identities` (
 --
 
 INSERT INTO `auth_identities` (`id`, `user_id`, `type`, `name`, `secret`, `secret2`, `expires`, `extra`, `force_reset`, `last_used_at`, `created_at`, `updated_at`) VALUES
-(6, 2, 'email_password', NULL, 'admin@gmail.com', '$2y$10$3K/uaGMqQDSWdddc//X7QO49Rjh0PyWz0bUk0luxYA8jd847BJhJy', NULL, NULL, 0, '2023-01-05 00:22:56', '2022-12-29 14:09:53', '2023-01-05 00:22:56');
+(6, 2, 'email_password', NULL, 'admin@gmail.com', '$2y$10$3K/uaGMqQDSWdddc//X7QO49Rjh0PyWz0bUk0luxYA8jd847BJhJy', NULL, NULL, 0, '2023-01-05 14:05:31', '2022-12-29 14:09:53', '2023-01-05 14:05:31');
 
 -- --------------------------------------------------------
 
@@ -99,7 +99,8 @@ INSERT INTO `auth_logins` (`id`, `ip_address`, `user_agent`, `id_type`, `identif
 (7, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36', 'email_password', 'admin@gmail.com', 2, '2023-01-03 21:07:22', 1),
 (8, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36', 'email_password', 'admin@gmail.com', 2, '2023-01-03 21:40:29', 1),
 (9, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36', 'email_password', 'admin@gmail.com', 2, '2023-01-04 21:22:55', 1),
-(10, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36', 'email_password', 'admin@gmail.com', 2, '2023-01-05 00:22:56', 1);
+(10, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36', 'email_password', 'admin@gmail.com', 2, '2023-01-05 00:22:56', 1),
+(11, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36', 'email_password', 'admin@gmail.com', 2, '2023-01-05 14:05:31', 1);
 
 -- --------------------------------------------------------
 
@@ -434,7 +435,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `status`, `status_message`, `active`, `last_active`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(2, 'Administrator', NULL, NULL, 1, '2023-01-05 00:30:13', '2022-12-29 14:09:53', '2022-12-29 14:09:53', NULL);
+(2, 'Administrator', NULL, 'Administrator of Bendera Logistic #1', 1, '2023-01-05 14:22:59', '2022-12-29 14:09:53', '2022-12-29 14:09:53', NULL);
 
 --
 -- Indexes for dumped tables
@@ -600,7 +601,7 @@ ALTER TABLE `auth_identities`
 -- AUTO_INCREMENT for table `auth_logins`
 --
 ALTER TABLE `auth_logins`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `auth_permissions_users`
@@ -642,7 +643,7 @@ ALTER TABLE `client`
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -684,7 +685,7 @@ ALTER TABLE `tariff`
 -- AUTO_INCREMENT for table `team`
 --
 ALTER TABLE `team`
-  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `type`

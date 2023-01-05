@@ -64,13 +64,29 @@ class Home extends BaseController
     public function news($id)
     {
         $_data = [];
+        $this->basePagination = 3;
+        
         foreach ($this->other as $elem) {
             array_push($_data, $elem->paginate($this->basePagination));
         }
         $this->assets['data'] = $_data;
-        $this->assets['news'] = $this->other[1]->where('md5(id)', $id)->first();
         $this->assets['enum'] = $this->enum;
+        $this->assets['clients'] = $this->prepareClients();
+        $this->assets['category'] = $this->other[4]
+            ->select('name, COUNT(*) cnt')
+            ->groupBy('name')
+            ->paginate($this->basePagination);
+        $this->assets['news'] = $this->complex[2]
+            ->select('news.*, category.name, users.username, users.status_message')
+            ->join('category', 'category.id = news.category_id')
+            ->join('users', 'users.id = news.created_by')
+            ->where('md5(news.id)', $id)
+            ->first();
+        // remap
+        $object = $this->assets['news']['path'];
+        $object = FirebaseWrapper::getInstance()->retrieve($object);
 
+        $this->assets['news']['path'] = $object['mediaLink'];
         return view('client/blog', $this->assets);
     }
 
@@ -125,6 +141,7 @@ class Home extends BaseController
                 $flag = true;
             }
 
+            $model = $model->orderBy('created_at', 'desc');
             $model = $model->paginate($this->basePagination);
             $_result = [];
             $_result[$table] = [];

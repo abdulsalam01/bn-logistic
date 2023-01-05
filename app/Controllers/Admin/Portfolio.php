@@ -67,7 +67,8 @@ class Portfolio extends BaseController
 
             $object = FirebaseWrapper::getInstance()->upload($this->request->getFile('path'));
             $path = ['path' => $object['name']];
-            $var = array_merge($this->request->getPost(), $path);
+            $isActive = ['status' => convertBooleanToInteger($this->request->getPost('status'))];
+            $var = array_merge($this->request->getPost(), $path, $isActive);
 
             $this->model->save($var);
             $this->model->transComplete();
@@ -101,6 +102,9 @@ class Portfolio extends BaseController
 
             $id = $this->request->getPost('id');
             $var = $this->request->getPost();
+            $isActive = ['is_active' => convertBooleanToInteger($this->request->getPost('is_active'))];
+
+            $var = array_merge($isActive, $var);
             if (!in_array($this->request->getFile('path')->getPath(), [null, ''])) {
                 $row = $this->model->where('md5(id)', md5($id))->first();
                 $rowJson = $row['path'];
