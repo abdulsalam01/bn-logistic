@@ -25,8 +25,8 @@
                             <div class="icon">
                                 <i class="bi bi-activity"></i>
                             </div>
-                            <h3>Nesciunt Mete</h3>
-                            <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
+                            <h3><?= $type['name'] ?></h3>
+                            <p><?= $type['description'] ?></p>
                             <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div><!-- End Service Item -->
