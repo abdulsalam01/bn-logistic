@@ -7,6 +7,8 @@
             case 'on':
             case 'true':
             case '1':
+            case 1:
+            case true:
                 $_result = 1;
                 break;
             default:

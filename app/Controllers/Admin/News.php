@@ -65,7 +65,7 @@ class News extends BaseController
     {
         if ($this->request->getMethod() === 'post' && $this->validate([
             'title' => 'required|min_length[10]|max_length[255]',
-            'description' => 'required|min_length[10]|max_length[255]',
+            'description' => 'required|min_length[10]',
             'path' => 'uploaded[path]|max_size[path,2048]|ext_in[path,png,jpg,gif]',
             'type' => 'required',
             'category_id' => 'required',
@@ -75,7 +75,7 @@ class News extends BaseController
             $object = FirebaseWrapper::getInstance()->upload($this->request->getFile('path'));
             $createdBy = ['created_by' => auth()->id()];
             $path = ['path' => $object['name']];
-            $isActive = ['is_active' => convertBooleanToInteger($this->request->getPost('is_active'))];
+            $isActive = ['status' => convertBooleanToInteger($this->request->getPost('status'))];
             $var = array_merge($this->request->getPost(), $createdBy, $path, $isActive);
 
             $this->model->save($var);
@@ -103,7 +103,7 @@ class News extends BaseController
         if ($this->request->getMethod() === 'post' && $this->validate([
             'id' => 'required',
             'title' => 'required|min_length[10]|max_length[255]',
-            'description' => 'required|min_length[10]|max_length[255]',
+            'description' => 'required|min_length[10]',
             'path' => 'uploaded[path]|max_size[path,2048]|ext_in[path,png,jpg,gif]',
             'type' => 'required',
             'category_id' => 'required',
@@ -113,7 +113,7 @@ class News extends BaseController
             $id = $this->request->getPost('id');
             $var = $this->request->getPost();
             $createdBy = ['created_by' => auth()->id()];
-            $isActive = ['is_active' => convertBooleanToInteger($this->request->getPost('is_active'))];
+            $isActive = ['status' => convertBooleanToInteger($this->request->getPost('status'))];
             if (!in_array($this->request->getFile('path')->getPath(), [null, ''])) {
                 $row = $this->model->where('md5(id)', md5($id))->first();
                 $rowJson = $row['path'];

@@ -10,7 +10,7 @@
             <div class="row gy-4">
                 <div class="col-lg-6">
                     <h3>VISI & MISI</h3>
-                    <div class="slides-3 swiper rounded-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="slides swiper rounded-4 mb-4" data-aos="fade-up" data-aos-delay="100">
                         <div class="swiper-wrapper">
                             <?php foreach ($clients['slider'] as $slider) : ?>
                                 <div class="swiper-slide">
@@ -19,7 +19,7 @@
                                             <div class="d-flex align-items-center">
                                                 <img src="<?= $slider['path'] ?>" class="testimonial-img flex-shrink-0 img-fluid" alt="">
                                                 <div>
-                                                    <h3><?= $slider['created_at'] ?></h3>
+                                                    <h3><?php // echo $slider['created_at'] ?></h3>
                                                     <h4>Ceo &amp; Founder</h4>
                                                     <div class="stars">
                                                         <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>

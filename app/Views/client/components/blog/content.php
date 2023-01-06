@@ -46,7 +46,7 @@
                     </article><!-- End blog post -->
 
                     <div class="post-author d-flex align-items-center">
-                        <img src="<?= base_url($url . '/img/blog/blog-author.jpg') ?>" class="rounded-circle flex-shrink-0" alt="">
+                        <img src="<?= base_url($url . '/img/favicon.jpeg') ?>" class="rounded-circle flex-shrink-0" alt="">
                         <div>
                             <h4><?= $news['username'] ?></h4>
                             <div class="social-links">
